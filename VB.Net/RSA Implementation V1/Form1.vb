@@ -296,14 +296,14 @@ Public Class KeyGenerationForm
         '注:我是海外的华裔/华人
         '同样的如果你是台湾人或者华人或者海外中国人,你也必须得准守我对中国的编程员所设下的条例
         MyRSAParams = MyRSACryptoServiceProvider.ExportParameters(True)
-        MessageBox.Show("P Count" = MyRSAParams.P.Count)
-        MessageBox.Show("Q Count" = MyRSAParams.Q.Count)
-        MessageBox.Show("Modulus Count" = MyRSAParams.Modulus.Count)
-        MessageBox.Show("Exponent Count" = MyRSAParams.Exponent.Count)
-        MessageBox.Show("D Count" = MyRSAParams.D.Count)
-        MessageBox.Show("DP Count" = MyRSAParams.DP.Count)
-        MessageBox.Show("DQ Count" = MyRSAParams.DQ.Count)
-        MessageBox.Show("InverseQ Count" = MyRSAParams.InverseQ.Count)
+    MessageBox.Show("P Count = " & MyRSAParams.P.Count)
+    MessageBox.Show("Q Count = " & MyRSAParams.Q.Count)
+    MessageBox.Show("Modulus Count = " & MyRSAParams.Modulus.Count)
+    MessageBox.Show("Exponent Count = " & MyRSAParams.Exponent.Count)
+    MessageBox.Show("D Count = " & MyRSAParams.D.Count)
+    MessageBox.Show("DP Count = " & MyRSAParams.DP.Count)
+    MessageBox.Show("DQ Count = " & MyRSAParams.DQ.Count)
+    MessageBox.Show("InverseQ Count = " & MyRSAParams.InverseQ.Count)
     End Sub
 
     Private Sub EncryptionBTN_Click(sender As Object, e As EventArgs) Handles EncryptionBTN.Click
