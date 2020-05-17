@@ -6,7 +6,7 @@ Public Class RSAEncryptDecryptForm
     Private Sub EncryptBTN_Click(sender As Object, e As EventArgs) Handles EncryptBTN.Click
         'This function down here will be using the RSA variables created in the
         'Previous Form
-        Dim MyRSACryptoServiceProvider As New RSACryptoServiceProvider(384)
+        Dim MyRSACryptoServiceProvider As New RSACryptoServiceProvider()
         Dim MyRSAParams As New RSAParameters With {
             .P = RSAVariables.PBytes,
             .Q = RSAVariables.QBytes,
