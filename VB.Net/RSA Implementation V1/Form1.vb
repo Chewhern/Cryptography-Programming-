@@ -1,4 +1,4 @@
-﻿Imports System.Security.Cryptography
+Imports System.Security.Cryptography
 Imports System.Numerics
 Imports System.IO
 Imports System.Text
@@ -137,7 +137,7 @@ Public Class KeyGenerationForm
         'the accepted key size provided by Microsoft RSA library
         'The current accepted key size supported by Microsoft was 384 bits to 16384 bits
         'This key size could be changed later on depends on how Microsoft uses it
-        Using StreamReader As New StreamReader("G:\PrimeList384P1.txt")
+            Using StreamReader As New StreamReader("D:\PrimeList384P1.txt")
             Dim line As String
             While x <= 80000
                 line = StreamReader.ReadLine
@@ -172,7 +172,7 @@ Public Class KeyGenerationForm
             DP.ToByteArray(DP.ToByteArray.Count - 1) = 0 Or
             DQ.ToByteArray(DQ.ToByteArray.Count - 1) = 0 Or
             InverseQ.ToByteArray(InverseQ.ToByteArray.Count - 1) = 0 Or
-            BigInteger.GreatestCommonDivisor(P, Q) <> 1 Then
+            BigInteger.GreatestCommonDivisor(P, Q) <> 1 Or BigInteger.GreatestCommonDivisor(Modulus1, 65537) <> 1 Then
 
             SelectionBoolean = True
             PublicX = x
@@ -185,17 +185,18 @@ Public Class KeyGenerationForm
                 DP = BigInteger.Remainder(D, (P - 1))
                 DQ = BigInteger.Remainder(D, (Q - 1))
                 InverseQ = ModInverse(Q, P)
-                If Modulus.ToByteArray.Count = 48 Or D.ToByteArray.Count = 48 Or
-                    DP.ToByteArray.Count = 24 Or DQ.ToByteArray.Count = 24 Or
-                    InverseQ.ToByteArray.Count = 24 Or
-                    P.ToByteArray(P.ToByteArray.Count - 1) <> 0 Or
-                    Q.ToByteArray(Q.ToByteArray.Count - 1) <> 0 Or
-                    Modulus.ToByteArray(Modulus.ToByteArray.Count - 1) <> 0 Or
-                    D.ToByteArray(D.ToByteArray.Count - 1) <> 0 Or
-                    DP.ToByteArray(DP.ToByteArray.Count - 1) <> 0 Or
-                    DQ.ToByteArray(DQ.ToByteArray.Count - 1) <> 0 Or
-                    InverseQ.ToByteArray(InverseQ.ToByteArray.Count - 1) <> 0 Or
-                    BigInteger.GreatestCommonDivisor(P, Q) = 1 Then
+                If Modulus.ToByteArray.Count = 48 And D.ToByteArray.Count = 48 And
+                    DP.ToByteArray.Count = 24 And DQ.ToByteArray.Count = 24 And
+                    InverseQ.ToByteArray.Count = 24 And
+                    P.ToByteArray(P.ToByteArray.Count - 1) <> 0 And
+                    Q.ToByteArray(Q.ToByteArray.Count - 1) <> 0 And
+                    Modulus.ToByteArray(Modulus.ToByteArray.Count - 1) <> 0 And
+                    D.ToByteArray(D.ToByteArray.Count - 1) <> 0 And
+                    DP.ToByteArray(DP.ToByteArray.Count - 1) <> 0 And
+                    DQ.ToByteArray(DQ.ToByteArray.Count - 1) <> 0 And
+                    InverseQ.ToByteArray(InverseQ.ToByteArray.Count - 1) <> 0 And
+                    BigInteger.GreatestCommonDivisor(P, Q) = 1 And
+                    BigInteger.GreatestCommonDivisor(Modulus1, 65537) = 1 Then
                     Exit While
 
                 ElseIf x = 39999 Then
@@ -296,14 +297,14 @@ Public Class KeyGenerationForm
         '注:我是海外的华裔/华人
         '同样的如果你是台湾人或者华人或者海外中国人,你也必须得准守我对中国的编程员所设下的条例
         MyRSAParams = MyRSACryptoServiceProvider.ExportParameters(True)
-    MessageBox.Show("P Count = " & MyRSAParams.P.Count)
-    MessageBox.Show("Q Count = " & MyRSAParams.Q.Count)
-    MessageBox.Show("Modulus Count = " & MyRSAParams.Modulus.Count)
-    MessageBox.Show("Exponent Count = " & MyRSAParams.Exponent.Count)
-    MessageBox.Show("D Count = " & MyRSAParams.D.Count)
-    MessageBox.Show("DP Count = " & MyRSAParams.DP.Count)
-    MessageBox.Show("DQ Count = " & MyRSAParams.DQ.Count)
-    MessageBox.Show("InverseQ Count = " & MyRSAParams.InverseQ.Count)
+        MessageBox.Show("P Count = " & MyRSAParams.P.Count)
+        MessageBox.Show("Q Count = " & MyRSAParams.Q.Count)
+        MessageBox.Show("Modulus Count = " & MyRSAParams.Modulus.Count)
+        MessageBox.Show("Exponent Count = " & MyRSAParams.Exponent.Count)
+        MessageBox.Show("D Count = " & MyRSAParams.D.Count)
+        MessageBox.Show("DP Count = " & MyRSAParams.DP.Count)
+        MessageBox.Show("DQ Count = " & MyRSAParams.DQ.Count)
+        MessageBox.Show("InverseQ Count = " & MyRSAParams.InverseQ.Count)
     End Sub
 
     Private Sub EncryptionBTN_Click(sender As Object, e As EventArgs) Handles EncryptionBTN.Click
@@ -328,7 +329,7 @@ Public Class KeyGenerationForm
         Dim InverseQ As BigInteger = 0
         Dim PrimeList, PrimeList2 As New List(Of BigInteger)
         Dim x As Integer = 1
-        Using StreamReader As New StreamReader("G:\PrimeList384P1.txt")
+        Using StreamReader As New StreamReader("D:\PrimeList384P1.txt")
             Dim line As String
             While x <= 80000
                 line = StreamReader.ReadLine
@@ -352,17 +353,18 @@ Public Class KeyGenerationForm
                 DP = BigInteger.Remainder(D, (P - 1))
                 DQ = BigInteger.Remainder(D, (Q - 1))
                 InverseQ = ModInverse(Q, P)
-                If Modulus.ToByteArray.Count = 48 Or D.ToByteArray.Count = 48 Or
-                    DP.ToByteArray.Count = 24 Or DQ.ToByteArray.Count = 24 Or
-                        InverseQ.ToByteArray.Count = 24 Or
-                        P.ToByteArray(P.ToByteArray.Count - 1) <> 0 Or
-                        Q.ToByteArray(Q.ToByteArray.Count - 1) <> 0 Or
-                        Modulus.ToByteArray(Modulus.ToByteArray.Count - 1) <> 0 Or
-                        D.ToByteArray(D.ToByteArray.Count - 1) <> 0 Or
-                        DP.ToByteArray(DP.ToByteArray.Count - 1) <> 0 Or
-                        DQ.ToByteArray(DQ.ToByteArray.Count - 1) <> 0 Or
-                        InverseQ.ToByteArray(InverseQ.ToByteArray.Count - 1) <> 0 Or
-                        BigInteger.GreatestCommonDivisor(P, Q) = 1 Then
+                If Modulus.ToByteArray.Count = 48 And D.ToByteArray.Count = 48 And
+                    DP.ToByteArray.Count = 24 And DQ.ToByteArray.Count = 24 And
+                        InverseQ.ToByteArray.Count = 24 And
+                        P.ToByteArray(P.ToByteArray.Count - 1) <> 0 And
+                        Q.ToByteArray(Q.ToByteArray.Count - 1) <> 0 And
+                        Modulus.ToByteArray(Modulus.ToByteArray.Count - 1) <> 0 And
+                        D.ToByteArray(D.ToByteArray.Count - 1) <> 0 And
+                        DP.ToByteArray(DP.ToByteArray.Count - 1) <> 0 And
+                        DQ.ToByteArray(DQ.ToByteArray.Count - 1) <> 0 And
+                        InverseQ.ToByteArray(InverseQ.ToByteArray.Count - 1) <> 0 And
+                        BigInteger.GreatestCommonDivisor(P, Q) = 1 And
+                        BigInteger.GreatestCommonDivisor(Modulus1, 65537) = 1 Then
                     If (Modulus > PreviousModulus) Then
                         PublicX = x
                         Exit While
@@ -420,7 +422,7 @@ Public Class KeyGenerationForm
         Dim InverseQ As BigInteger = 0
         Dim PrimeList, PrimeList2 As New List(Of BigInteger)
         Dim x As Integer = 1
-        Using StreamReader As New StreamReader("G:\PrimeList384P1.txt")
+        Using StreamReader As New StreamReader("D:\PrimeList384P1.txt")
             Dim line As String
             While x <= 80000
                 line = StreamReader.ReadLine
@@ -444,17 +446,18 @@ Public Class KeyGenerationForm
                 DP = BigInteger.Remainder(D, (P - 1))
                 DQ = BigInteger.Remainder(D, (Q - 1))
                 InverseQ = ModInverse(Q, P)
-                If Modulus.ToByteArray.Count = 48 Or D.ToByteArray.Count = 48 Or
-                    DP.ToByteArray.Count = 24 Or DQ.ToByteArray.Count = 24 Or
-                        InverseQ.ToByteArray.Count = 24 Or
-                        P.ToByteArray(P.ToByteArray.Count - 1) <> 0 Or
-                        Q.ToByteArray(Q.ToByteArray.Count - 1) <> 0 Or
-                        Modulus.ToByteArray(Modulus.ToByteArray.Count - 1) <> 0 Or
-                        D.ToByteArray(D.ToByteArray.Count - 1) <> 0 Or
-                        DP.ToByteArray(DP.ToByteArray.Count - 1) <> 0 Or
-                        DQ.ToByteArray(DQ.ToByteArray.Count - 1) <> 0 Or
-                        InverseQ.ToByteArray(InverseQ.ToByteArray.Count - 1) <> 0 Or
-                        BigInteger.GreatestCommonDivisor(P, Q) = 1 Then
+                If Modulus.ToByteArray.Count = 48 And D.ToByteArray.Count = 48 And
+                    DP.ToByteArray.Count = 24 And DQ.ToByteArray.Count = 24 And
+                        InverseQ.ToByteArray.Count = 24 And
+                        P.ToByteArray(P.ToByteArray.Count - 1) <> 0 And
+                        Q.ToByteArray(Q.ToByteArray.Count - 1) <> 0 And
+                        Modulus.ToByteArray(Modulus.ToByteArray.Count - 1) <> 0 And
+                        D.ToByteArray(D.ToByteArray.Count - 1) <> 0 And
+                        DP.ToByteArray(DP.ToByteArray.Count - 1) <> 0 And
+                        DQ.ToByteArray(DQ.ToByteArray.Count - 1) <> 0 And
+                        InverseQ.ToByteArray(InverseQ.ToByteArray.Count - 1) <> 0 And
+                        BigInteger.GreatestCommonDivisor(P, Q) = 1 And
+                        BigInteger.GreatestCommonDivisor(Modulus1, 65537) = 1 Then
                     If (Modulus < PreviousModulus) Then
                         Exit While
                         PublicX = x
@@ -512,7 +515,7 @@ Public Class KeyGenerationForm
         Dim InverseQ As BigInteger = 0
         Dim PrimeList, PrimeList2 As New List(Of BigInteger)
         Dim x As Integer = 1
-        Using StreamReader As New StreamReader("G:\PrimeList384P1.txt")
+        Using StreamReader As New StreamReader("D:\PrimeList384P1.txt")
             Dim line As String
             While x <= 80000
                 line = StreamReader.ReadLine
@@ -536,17 +539,18 @@ Public Class KeyGenerationForm
                 DP = BigInteger.Remainder(D, (P - 1))
                 DQ = BigInteger.Remainder(D, (Q - 1))
                 InverseQ = ModInverse(Q, P)
-                If Modulus.ToByteArray.Count = 48 Or D.ToByteArray.Count = 48 Or
-                    DP.ToByteArray.Count = 24 Or DQ.ToByteArray.Count = 24 Or
-                        InverseQ.ToByteArray.Count = 24 Or
-                        P.ToByteArray(P.ToByteArray.Count - 1) <> 0 Or
-                        Q.ToByteArray(Q.ToByteArray.Count - 1) <> 0 Or
-                        Modulus.ToByteArray(Modulus.ToByteArray.Count - 1) <> 0 Or
-                        D.ToByteArray(D.ToByteArray.Count - 1) <> 0 Or
-                        DP.ToByteArray(DP.ToByteArray.Count - 1) <> 0 Or
-                        DQ.ToByteArray(DQ.ToByteArray.Count - 1) <> 0 Or
-                        InverseQ.ToByteArray(InverseQ.ToByteArray.Count - 1) <> 0 Or
-                        BigInteger.GreatestCommonDivisor(P, Q) = 1 Then
+                If Modulus.ToByteArray.Count = 48 And D.ToByteArray.Count = 48 And
+                    DP.ToByteArray.Count = 24 And DQ.ToByteArray.Count = 24 And
+                        InverseQ.ToByteArray.Count = 24 And
+                        P.ToByteArray(P.ToByteArray.Count - 1) <> 0 And
+                        Q.ToByteArray(Q.ToByteArray.Count - 1) <> 0 And
+                        Modulus.ToByteArray(Modulus.ToByteArray.Count - 1) <> 0 And
+                        D.ToByteArray(D.ToByteArray.Count - 1) <> 0 And
+                        DP.ToByteArray(DP.ToByteArray.Count - 1) <> 0 And
+                        DQ.ToByteArray(DQ.ToByteArray.Count - 1) <> 0 And
+                        InverseQ.ToByteArray(InverseQ.ToByteArray.Count - 1) <> 0 And
+                        BigInteger.GreatestCommonDivisor(P, Q) = 1 And
+                        BigInteger.GreatestCommonDivisor(Modulus1, 65537) = 1 Then
                     If (Modulus > PreviousModulus) Then
                         PublicRandomIndex = x
                         Exit While
@@ -602,7 +606,7 @@ Public Class KeyGenerationForm
         Dim InverseQ As BigInteger = 0
         Dim PrimeList, PrimeList2 As New List(Of BigInteger)
         Dim x As Integer = 1
-        Using StreamReader As New StreamReader("G:\PrimeList384P1.txt")
+        Using StreamReader As New StreamReader("D:\PrimeList384P1.txt")
             Dim line As String
             While x <= 80000
                 line = StreamReader.ReadLine
@@ -626,17 +630,18 @@ Public Class KeyGenerationForm
                 DP = BigInteger.Remainder(D, (P - 1))
                 DQ = BigInteger.Remainder(D, (Q - 1))
                 InverseQ = ModInverse(Q, P)
-                If Modulus.ToByteArray.Count = 48 Or D.ToByteArray.Count = 48 Or
-                    DP.ToByteArray.Count = 24 Or DQ.ToByteArray.Count = 24 Or
-                        InverseQ.ToByteArray.Count = 24 Or
-                        P.ToByteArray(P.ToByteArray.Count - 1) <> 0 Or
-                        Q.ToByteArray(Q.ToByteArray.Count - 1) <> 0 Or
-                        Modulus.ToByteArray(Modulus.ToByteArray.Count - 1) <> 0 Or
-                        D.ToByteArray(D.ToByteArray.Count - 1) <> 0 Or
-                        DP.ToByteArray(DP.ToByteArray.Count - 1) <> 0 Or
-                        DQ.ToByteArray(DQ.ToByteArray.Count - 1) <> 0 Or
-                        InverseQ.ToByteArray(InverseQ.ToByteArray.Count - 1) <> 0 Or
-                        BigInteger.GreatestCommonDivisor(P, Q) = 1 Then
+                If Modulus.ToByteArray.Count = 48 And D.ToByteArray.Count = 48 And
+                    DP.ToByteArray.Count = 24 And DQ.ToByteArray.Count = 24 And
+                        InverseQ.ToByteArray.Count = 24 And
+                        P.ToByteArray(P.ToByteArray.Count - 1) <> 0 And
+                        Q.ToByteArray(Q.ToByteArray.Count - 1) <> 0 And
+                        Modulus.ToByteArray(Modulus.ToByteArray.Count - 1) <> 0 And
+                        D.ToByteArray(D.ToByteArray.Count - 1) <> 0 And
+                        DP.ToByteArray(DP.ToByteArray.Count - 1) <> 0 And
+                        DQ.ToByteArray(DQ.ToByteArray.Count - 1) <> 0 And
+                        InverseQ.ToByteArray(InverseQ.ToByteArray.Count - 1) <> 0 And
+                        BigInteger.GreatestCommonDivisor(P, Q) = 1 And
+                        BigInteger.GreatestCommonDivisor(Modulus1, 65537) = 1 Then
                     If (Modulus < PreviousModulus) Then
                         Exit While
                         PublicRandomIndex = x
