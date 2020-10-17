@@ -27,8 +27,8 @@ namespace EncryptedChatApplication
                         serverOptions.Listen(IPAddress.Parse("0.0.0.0"), 5000,
                             listenOptions =>
                             {
-                                listenOptions.UseHttps("/etc/ca-certificates/mrchewitsoftware.com.my/certificate.pfx",
-                                    "aXZ2r6K2$fHcL@&A");
+                                listenOptions.UseHttps("Path to cfx file on Windows/Linux/Mac",
+                                    "Password");
                             });
                     });
                 });
