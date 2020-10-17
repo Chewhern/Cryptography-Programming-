@@ -24,7 +24,9 @@ namespace EncryptedChatApplication
                     webBuilder.UseStartup<Startup>();
                     webBuilder.ConfigureKestrel(serverOptions =>
                     {
-                        serverOptions.Listen(IPAddress.Parse("0.0.0.0"), 5000,
+                        //Can Put FQDN Domain IP or put Numeric IP (localhost = 0.0.0.0 in its numeric IP format), Port Number is any IP number after ":" for example
+                        //"5000" so the full sample access IP for IIS/Kestrel will be 0.0.0.0:5000 for respective application
+                        serverOptions.Listen(IPAddress.Parse("0.0.0.0"), (Port_Number),
                             listenOptions =>
                             {
                                 listenOptions.UseHttps("Path to cfx file on Windows/Linux/Mac",
