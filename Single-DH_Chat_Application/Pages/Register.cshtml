@@ -1,0 +1,41 @@
+﻿@page
+@model EncryptedChatApplication.RegisterModel
+@{
+    ViewData["Title"] = "Register";
+    Layout = "Layouts/_RegisterLayout";
+}
+
+<h1>Register as a chat user</h1>
+<div class="Form-wrapper">
+    <form method="post" enctype="multipart/form-data" asp-action="Register">
+        <label>Avoid using <label style="color:red; font-weight:bold;"><i>'</i></label> or <label style="color:red; font-weight:bold;"><i>"</i></label> when registering account</label>
+        <br><br>
+        <label>Your Actual Email (Recovery)</label><br>
+        <input type="email" name="Email" placeholder="example123@gmail.com" required>
+        <br>
+        <label>User Name</label><br>
+        <input type="text" name="User_Name" placeholder="example123" required><br>
+        <label>Security Question</label><br>
+        <select name="Security_Question_Selection" required>
+            <option value="What is your first pet name?">What is your first pet name?</option>
+            <option value="Which teacher do you like the most?">Which teacher do you like the most?</option>
+            <option value="What is the first company that you worked for?">What is the first company that you worked for?</option>
+            <option value="What is your most favourite fruit?">What is your most favourite fruit?</option>
+            <option value="What is the movie that impressed you the most?">What is the movie that impressed you the most?</option>
+            <option value="What is the first country that you had travelled to?">What is the first country that you had travelled to?</option>
+            <option value="Which elementary school/primary school did you attend?">Which elementary school/primary school did you attend?</option>
+            <option value="What is the name of a college you applied to but did not attend?">What is the name of a college you applied to but did not attend?</option>
+            <option value="What is the name of the college/university that you stayed for your diploma or degree?">What is the name of the college/university that you stayed for your diploma or degree?</option>
+        </select><br>
+        <input type="text" name="Security_Question" placeholder="Security Question Answer" required><br>
+        <br>
+        <input type="submit" name="RegisterBTN" value="Register">
+    </form>
+</div>
+<br>
+<br>
+@if (ViewData["RegistrationError"] != null) 
+{ 
+    <label>@ViewData["RegistrationError"].ToString()</label>
+}
+

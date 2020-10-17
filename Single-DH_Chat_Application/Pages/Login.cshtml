@@ -1,0 +1,27 @@
+﻿@page
+@model EncryptedChatApplication.LoginModel
+@{
+    ViewData["Title"] = "Login";
+    Layout = "Layouts/_LoginLayout";
+}
+
+<h1>Login as a chat user</h1>
+<div class="Form-wrapper">
+    <form method="post" enctype="multipart/form-data" asp-action="Login">
+        <label>User Name</label><br>
+        <input type="text" name="User_Name" placeholder="example123" required><br>
+        <label>Password</label><br>
+        <input type="password" name="Password" required><br>
+        <label>Secondary Password</label><br>
+        <input type="password" name="Secondary_Password" required><br>
+        <br>
+        <input type="submit" name="LoginBTN" value="Redirect">
+    </form>
+</div>
+<br>
+<br>
+@if (ViewData["Redirect_Error"] != null) 
+{ 
+    <label>@ViewData["Redirect_Error"].ToString()</label>
+}
+

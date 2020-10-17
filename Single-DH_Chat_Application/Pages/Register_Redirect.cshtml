@@ -1,0 +1,42 @@
+﻿@page
+@model EncryptedChatApplication.Register_RedirectModel
+@{
+    ViewData["Title"] = "Register_Redirect";
+    Layout = "Layouts/_Register_RedirectLayout";
+    int Loop = 0;
+}
+
+<h1 style="color:red;font-weight:bold;">Please do remember the following data as these will be required for further use in this system</h1>
+<br>
+<br>
+<h3 style="color:red;font-weight:bold;">Account Login</h3>
+@if (ViewData["Password"] != null)
+{
+    <br>
+    <label>@ViewData["Password"].ToString()</label>
+}
+@if (Model.SaltsList.Count != 0)
+{
+    while (Loop < Model.SaltsList.Count)
+    {
+        <br>
+        <label>Secondary Password :@Model.SaltsList[Loop].ToString()</label>
+        Loop += 1;
+    }
+}
+<br>
+<br>
+<br>
+<h3 style="color:red;font-weight:bold;">Account Recovery</h3>
+@if (ViewData["AESIVString"] != null) 
+{ 
+    <br>
+    <label>@ViewData["AESIVString"].ToString()</label>
+}
+
+<br>
+<div class="Form_wrapper">
+<form method="post">
+    <input type="submit" value="Click Me to Redirect" name="RedirectBTN" asp-action="RegisterRedirect">
+</form>
+</div>

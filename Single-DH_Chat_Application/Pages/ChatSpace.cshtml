@@ -1,0 +1,24 @@
+﻿@page
+@model EncryptedChatApplication.ChatSpaceModel
+@{
+    ViewData["Title"] = "ChatSpace";
+    Layout = "Layouts/_Chat_List_Layout";
+}
+
+<h1>Chat Space</h1>
+
+<div class="embed-responsive embed-responsive-16by9">
+    <iframe src="/ChatStorage" class="embed-responsive-item">
+        
+    </iframe>
+</div>
+
+
+<div class="Form-wrapper">
+    <form method="post">
+        <input type="text" name="Chat_Message" placeholder="Type your message here.." required>
+        <br>
+        <input type="submit" name="Chat_BTN" value="Send Message" asp-action="ChatSpace"><br>
+        <input type="submit" name="Refresh_BTN" value="Reset Idle Time" asp-page-handler="Reset">
+    </form>
+</div>

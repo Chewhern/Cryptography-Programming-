@@ -1,0 +1,52 @@
+﻿@page
+@model EncryptedChatApplication.Chat_ListModel
+@{
+    ViewData["Title"] = "Chat_List";
+    Layout = "Layouts/_Chat_List_Layout";
+    int Loop = 0;
+}
+
+<h1>Users that you can chat with</h1>
+
+<div class="Form-wrapper">
+    <form method="post">
+        <table id="records">
+            <tr>
+                <th>Users</th>
+                <th>Check your own keypairs</th>
+                <th>Chat</th>
+            </tr>
+            @if (Model.OtherUserList.Count != 0)
+            {
+                @while (Loop < Model.OtherUserList.Count)
+                {
+                    <tr>
+                        <td>@Model.OtherUserList[Loop]</td>
+                        <td><input type="submit" name="Key_Checker_BTN" value="@Model.IDList[Loop]" asp-action="Chat_List"></td>
+                        <td><input type="submit" name="Chat_BTN" value="@Model.IDList[Loop]" asp-page-handler="Chat" formmethod="post"></td>
+                    </tr>
+                    Loop += 1;
+                }
+                Loop = 0;
+            }
+            else
+            {
+                <tr>
+                    <td>No Data</td>
+                    <td>No Data</td>
+                    <td>No Data</td>
+                </tr>
+            }
+
+        </table>
+
+        @if (Model.OtherUserCount > 50)
+        {
+            <input type="text" name="Search_User" placeholder="Type a username to search"><br><br>
+            <input type="submit" name="Next_BTN" value=">" asp-page-handler="Next"><br><br>
+            <input type="submit" name="Previous_BTN" value="<" asp-page-handler="Previous"><br><br>
+            <input type="submit" name="Search_BTN" value="Search" asp-page-handler="Search"><br><br>
+            <input type="submit" name="Clear_Session_BTN" value="Clear Search" asp-page-handler="ClearSearchSession"><br><br>
+        }
+    </form>
+</div>

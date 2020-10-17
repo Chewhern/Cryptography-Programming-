@@ -1,0 +1,28 @@
+﻿@page
+@model EncryptedChatApplication.DFKey_DisplayModel
+@{
+    ViewData["Title"] = "DFKey_Display";
+    Layout = "Layouts/_UsersLayout";
+}
+
+<h1>Diffie Hellman Key Display</h1>
+
+<br>
+<br>
+<br>
+
+@if (ViewData["Chosen_User"] != null)
+{
+    <br/>
+    <h3 style="color:red;font-weight:bold;">Note: The following data will only appear once</h3><br>
+    <h3>The following diffie hellman keypairs had been established with @ViewData["Chosen_User"]</h3>
+    <br>
+    <label>Note: You will need to remember your private key with the respective user that you choose to chat with</label>
+    <br>
+    <label>Public Key: @ViewData["Public_Key_String"]</label>
+    <br>
+    <label>Private Key: @ViewData["Private_Key_String"]</label>
+}
+
+
+

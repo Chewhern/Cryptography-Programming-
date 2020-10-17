@@ -1,0 +1,53 @@
+﻿@page
+@model EncryptedChatApplication.ChatStorageModel
+@{
+    ViewData["Title"] = "ChatStorage";
+    Layout = "Layouts/_Chat_Storage_Layout";
+    int Loop = 0;
+}
+
+
+<div class="card">
+    <div class="card-header msg_head">
+        <div class="d-flex bd-highlight">
+            <div class="user_info">
+                @if (Model.Other_User != null || Model.Other_User.CompareTo("") != 0)
+                 {
+                    <span>Chat between @Model.Current_User and @Model.Other_User</span>
+                 }
+                 else
+                 {
+                    <span>Chat with Nobody</span>
+                 }
+                @if (Model.Current_Count!=0)
+                 {
+                    <br>
+                    <span>Total of @Model.Current_Count message/messages</span><br>
+                 }
+            </div>
+        </div>
+    </div>
+    <div class="card-body msg_card_body">
+        @while (Loop < Model.Message_List.Count)
+         {
+            if (Model.Sender_NameList[Loop].CompareTo(Model.Current_User) != 0)
+            {
+                <div class="d-flex justify-content-start mb-4">
+                    <div class="msg_cotainer">
+                        @Model.Message_List[Loop].ToString()
+                    </div>
+                </div>
+            }
+            else
+            {
+                <div class="d-flex justify-content-end mb-4">
+                    <div class="msg_cotainer_send">
+                        @Model.Message_List[Loop].ToString()
+                        <span class="msg_time_send">@Model.Receiver_StatusList[Loop].ToString()</span>
+                    </div>
+                </div>
+            }
+            Loop += 1;
+         }
+    </div>
+</div>

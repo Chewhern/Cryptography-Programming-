@@ -1,0 +1,61 @@
+﻿@page
+@model EncryptedChatApplication.UsersModel
+@{
+    ViewData["Title"] = "Users";
+    Layout = "Layouts/_UsersLayout";
+    int Loop = 0;
+}
+
+<h1>List of users</h1>
+
+<div class="Form-wrapper">
+    @if (ViewData["Result"] != null)
+    {
+        <label>@ViewData["Result"].ToString()</label>
+    }
+    else
+    {
+<form method="post">
+    <table id="records">
+        <tr>
+            <th>Users</th>
+            <th>Key Establishment</th>
+        </tr>
+        @if (Model.UserList.Count > 0)
+        {
+            @while (Loop < Model.UserList.Count)
+            {
+                <tr>
+                    <td>@Model.UserList[Loop]</td>
+                    <td><input type="submit" name="Key_Establishment_BTN" value="@Model.UserList[Loop]" asp-action="Users"></td>
+                </tr>
+                Loop += 1;
+            }
+        }
+        else
+        {
+            <tr>
+                <td>No Data</td>
+                <td>No Data</td>
+            </tr>
+        }
+
+    </table>
+    @if (Model.UserListCount > 50)
+    {
+        <input type="text" name="Search_User" placeholder="Type a username to search"><br><br>
+        <input type="submit" name="Next_BTN" value=">" asp-action="Users" asp-page-handler="Next"><br><br>
+        @if (Model.SessionSearchUser != null)
+        {
+            <input type="submit" name="Previous_BTN" value="<" asp-action="Users" asp-page-handler="Previous"><br><br>
+        }
+        <input type="submit" name="Search_BTN" value="Search" asp-action="Users" asp-page-handler="Search"><br><br>
+        @if (Model.SessionSearchUser != null)
+        {
+            <input type="submit" name="Clear_Session_BTN" value="Clear Search" asp-action="Users" asp-page-handler="ClearSearchSession"><br><br>
+        }
+    }
+
+</form>
+    }
+</div>

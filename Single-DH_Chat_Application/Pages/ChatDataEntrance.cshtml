@@ -1,0 +1,26 @@
+﻿@page
+@model EncryptedChatApplication.ChatDataEntranceModel
+@{
+    ViewData["Title"] = "ChatDataEntrance";
+    Layout = "Layouts/_Chat_List_Layout";
+}
+
+<h1>Enter the following data to chat with others..</h1>
+
+<div class="Form-wrapper">
+    @if (ViewData["Result"] != null)
+    {
+        <br><br>
+        <label>@ViewData["Result"].ToString()</label>
+    }
+    else
+    {
+        <form method="post">
+            <label>Enter Diffie Hellman Private Key (Numbers)</label>
+            <br>
+            <input type="password" name="DHSKey" required>
+            <br>
+            <input type="submit" name="Redirect_BTN" value="Redirect to Chat Room" asp-action="ChatDataEntrance">
+        </form>
+    }
+</div>

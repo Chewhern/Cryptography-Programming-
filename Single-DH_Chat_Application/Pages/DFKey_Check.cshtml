@@ -1,0 +1,25 @@
+﻿@page
+@model EncryptedChatApplication.DFKey_CheckModel
+@{
+    ViewData["Title"] = "DFKey_Check";
+    Layout = "Layouts/_Chat_List_Layout";
+}
+
+<h1>Diffie Hellman Key Check</h1>
+
+<div class="Form-wrapper">
+    @if (ViewData["Result"] != null)
+    {
+        <br><br>
+        <label>@ViewData["Result"].ToString()</label>
+    }
+    else
+    {
+        <form method="post">
+            <label>Private Diffie Hellman Key (Number)</label><br>
+            <input type="password" name="SK_Diffie_Hellman" required><br>
+            <input type="submit" name="Key_Check_BTN" value="Check your own key" asp-action="DFKey_Check">
+        </form>
+    }
+</div>
+
