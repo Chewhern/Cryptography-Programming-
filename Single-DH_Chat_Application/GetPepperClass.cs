@@ -9,7 +9,7 @@ namespace EncryptedChatApplication
     public class GetPepperClass
     {
         public String Pepper;
-        public String SecretPath = "/db/ChatApplicationPepper.txt";
+        public String SecretPath = "Pepper string that store in a text file with corresponding path in Windows/Mac/Linux";
 
         public void InitializePepper()
         {
