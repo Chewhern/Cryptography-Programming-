@@ -11,7 +11,7 @@ namespace EncryptedChatApplication
     {
         public MySqlConnection MyMySQLConnection = new MySqlConnection();
         public Boolean CheckConnection;
-        public String SecretPath = "/db/ChatApplication.txt";
+        public String SecretPath = "Path to MySQL DB Connection";
         public String ConnectionString = "";
 
         public void setConnection() {
