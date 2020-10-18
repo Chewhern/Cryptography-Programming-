@@ -47,12 +47,12 @@
         <input type="submit" name="Next_BTN" value=">" asp-action="Users" asp-page-handler="Next"><br><br>
         @if (Model.SessionSearchUser != null)
         {
-            <input type="submit" name="Previous_BTN" value="<" asp-action="Users" asp-page-handler="Previous"><br><br>
+            <input type="submit" name="Previous_BTN" value="<" asp-page-handler="Previous"><br><br>
         }
-        <input type="submit" name="Search_BTN" value="Search" asp-action="Users" asp-page-handler="Search"><br><br>
+        <input type="submit" name="Search_BTN" value="Search" asp-page-handler="Search"><br><br>
         @if (Model.SessionSearchUser != null)
         {
-            <input type="submit" name="Clear_Session_BTN" value="Clear Search" asp-action="Users" asp-page-handler="ClearSearchSession"><br><br>
+            <input type="submit" name="Clear_Session_BTN" value="Clear Search" asp-page-handler="ClearSearchSession"><br><br>
         }
     }
 
