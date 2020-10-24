@@ -28,6 +28,8 @@ namespace EncryptedChatApplication
             services.AddSession();
 
             services.AddDistributedMemoryCache();
+            
+            services.AddHostedService<RemoveKeysScheduler>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
