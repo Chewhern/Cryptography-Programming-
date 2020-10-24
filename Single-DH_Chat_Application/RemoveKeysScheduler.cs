@@ -45,8 +45,8 @@ namespace EncryptedChatApplication
         {
             String Exception = "";
             Boolean CheckConnection = MyOwnMySQLConnectionClass.LoadConnection(ref Exception);
-            StreamReader MyStreamReader = new StreamReader("/Projects/Single-DH_ChatApplication/Count.txt");
-            StreamWriter MyStreamWriter = new StreamWriter("/Projects/Single-DH_ChatApplication/Count.txt");
+            StreamReader MyStreamReader = new StreamReader("Path to a text file that stores the count ...");
+            StreamWriter MyStreamWriter = new StreamWriter("Path to a text file that stores the count ...");
             String CountString = "";
             int Count = 0;
             MySqlCommand MySQLNonQuery = new MySqlCommand();
