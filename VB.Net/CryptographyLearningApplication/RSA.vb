@@ -44,7 +44,7 @@ Public Class RSA
                 PBigInt = New Org.BouncyCastle.Math.BigInteger(PString)
                 QBigInt = New Org.BouncyCastle.Math.BigInteger(QString)
                 PrimeBoolean1 = PBigInt.IsProbablePrime(1)
-                PrimeBoolean2 = QBigInt.IsProbablePrime(2)
+                PrimeBoolean2 = QBigInt.IsProbablePrime(1)
                 If PrimeBoolean1 = True And PrimeBoolean2 = True Then
                     PSBigInt = BigInteger.Parse(PString)
                     QSBigInt = BigInteger.Parse(QString)
