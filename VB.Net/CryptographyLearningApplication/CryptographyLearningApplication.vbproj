@@ -1,0 +1,357 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{28445989-4EDC-4039-BA60-7D30998894F5}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>CryptographyLearningApplication.My.MyApplication</StartupObject>
+    <RootNamespace>CryptographyLearningApplication</RootNamespace>
+    <AssemblyName>CryptographyLearningApplication</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>WindowsForms</MyType>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <PublishUrl>C:\Users\chew\Desktop\HernITSoftware\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>false</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.0</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>CryptographyLearningApplication.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>CryptographyLearningApplication.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>59F31B6AC5EC0E9E44D261019F1DF81236E8A677</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>CryptographyLearningApplication_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.6.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>packages\BouncyCastle.1.8.6.1\lib\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="Konscious.Security.Cryptography.Argon2, Version=1.2.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Konscious.Security.Cryptography.Argon2.1.2.1\lib\net46\Konscious.Security.Cryptography.Argon2.dll</HintPath>
+    </Reference>
+    <Reference Include="Konscious.Security.Cryptography.Blake2, Version=1.0.9.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Konscious.Security.Cryptography.Blake2.1.0.9\lib\net46\Konscious.Security.Cryptography.Blake2.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Sodium.Core, Version=1.2.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Sodium.Core.1.2.3\lib\netstandard2.0\Sodium.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+    <Import Include="System.Threading.Tasks" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AEAD_AES.Designer.vb">
+      <DependentUpon>AEAD_AES.vb</DependentUpon>
+    </Compile>
+    <Compile Include="AEAD_AES.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AES_Byte.Designer.vb">
+      <DependentUpon>AES_Byte.vb</DependentUpon>
+    </Compile>
+    <Compile Include="AES_Byte.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AES_Text.Designer.vb">
+      <DependentUpon>AES_Text.vb</DependentUpon>
+    </Compile>
+    <Compile Include="AES_Text.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AE_AES.Designer.vb">
+      <DependentUpon>AE_AES.vb</DependentUpon>
+    </Compile>
+    <Compile Include="AE_AES.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Argon2_PBKDF2.Designer.vb">
+      <DependentUpon>Argon2_PBKDF2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Argon2_PBKDF2.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Elliptic_Curves_Cryptography_DH_SK_PK.Designer.vb">
+      <DependentUpon>Elliptic_Curves_Cryptography_DH_SK_PK.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Elliptic_Curves_Cryptography_DH_SK_PK.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Elliptic_Curves_Cryptography_Diffie_Hellman.Designer.vb">
+      <DependentUpon>Elliptic_Curves_Cryptography_Diffie_Hellman.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Elliptic_Curves_Cryptography_Diffie_Hellman.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Elliptic_Curves_Cryptography_Signature.Designer.vb">
+      <DependentUpon>Elliptic_Curves_Cryptography_Signature.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Elliptic_Curves_Cryptography_Signature.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Elliptic_Curves_Cryptography_Signature_To_DH.Designer.vb">
+      <DependentUpon>Elliptic_Curves_Cryptography_Signature_To_DH.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Elliptic_Curves_Cryptography_Signature_To_DH.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Home_Form.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Home_Form.Designer.vb">
+      <DependentUpon>Home_Form.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="RandomPasswordGeneratorString.vb" />
+    <Compile Include="Random_Pass_Generator.Designer.vb">
+      <DependentUpon>Random_Pass_Generator.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Random_Pass_Generator.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Random_Pass_Generator_System_String.Designer.vb">
+      <DependentUpon>Random_Pass_Generator_System_String.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Random_Pass_Generator_System_String.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RSA.Designer.vb">
+      <DependentUpon>RSA.vb</DependentUpon>
+    </Compile>
+    <Compile Include="RSA.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RSA_OAEP_Padding.Designer.vb">
+      <DependentUpon>RSA_OAEP_Padding.vb</DependentUpon>
+    </Compile>
+    <Compile Include="RSA_OAEP_Padding.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RSA_Padding.Designer.vb">
+      <DependentUpon>RSA_Padding.vb</DependentUpon>
+    </Compile>
+    <Compile Include="RSA_Padding.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Salt_Pepper_Byte.Designer.vb">
+      <DependentUpon>Salt_Pepper_Byte.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Salt_Pepper_Byte.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Salt_Pepper_String.Designer.vb">
+      <DependentUpon>Salt_Pepper_String.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Salt_Pepper_String.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Signalx3DH.Designer.vb">
+      <DependentUpon>Signalx3DH.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Signalx3DH.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Signal_Out_Of_Band_Authentication.Designer.vb">
+      <DependentUpon>Signal_Out_Of_Band_Authentication.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Signal_Out_Of_Band_Authentication.vb">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="AEAD_AES.resx">
+      <DependentUpon>AEAD_AES.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AES_Byte.resx">
+      <DependentUpon>AES_Byte.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AES_Text.resx">
+      <DependentUpon>AES_Text.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AE_AES.resx">
+      <DependentUpon>AE_AES.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Argon2_PBKDF2.resx">
+      <DependentUpon>Argon2_PBKDF2.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Elliptic_Curves_Cryptography_DH_SK_PK.resx">
+      <DependentUpon>Elliptic_Curves_Cryptography_DH_SK_PK.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Elliptic_Curves_Cryptography_Diffie_Hellman.resx">
+      <DependentUpon>Elliptic_Curves_Cryptography_Diffie_Hellman.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Elliptic_Curves_Cryptography_Signature.resx">
+      <DependentUpon>Elliptic_Curves_Cryptography_Signature.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Elliptic_Curves_Cryptography_Signature_To_DH.resx">
+      <DependentUpon>Elliptic_Curves_Cryptography_Signature_To_DH.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Home_Form.resx">
+      <DependentUpon>Home_Form.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Random_Pass_Generator.resx">
+      <DependentUpon>Random_Pass_Generator.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Random_Pass_Generator_System_String.resx">
+      <DependentUpon>Random_Pass_Generator_System_String.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RSA.resx">
+      <DependentUpon>RSA.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RSA_OAEP_Padding.resx">
+      <DependentUpon>RSA_OAEP_Padding.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RSA_Padding.resx">
+      <DependentUpon>RSA_Padding.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Salt_Pepper_Byte.resx">
+      <DependentUpon>Salt_Pepper_Byte.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Salt_Pepper_String.resx">
+      <DependentUpon>Salt_Pepper_String.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Signalx3DH.resx">
+      <DependentUpon>Signalx3DH.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Signal_Out_Of_Band_Authentication.resx">
+      <DependentUpon>Signal_Out_Of_Band_Authentication.vb</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="CryptographyLearningApplication_TemporaryKey.pfx" />
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <Import Project="packages\Baseclass.Contrib.Nuget.Output.2.4.3\build\Baseclass.Contrib.Nuget.Output.targets" Condition="Exists('packages\Baseclass.Contrib.Nuget.Output.2.4.3\build\Baseclass.Contrib.Nuget.Output.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\Baseclass.Contrib.Nuget.Output.2.4.3\build\Baseclass.Contrib.Nuget.Output.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Baseclass.Contrib.Nuget.Output.2.4.3\build\Baseclass.Contrib.Nuget.Output.targets'))" />
+  </Target>
+</Project>
